@@ -207,7 +207,7 @@ export default function Hero() {
               {[
                 { icon: GitBranch, href: 'https://github.com/Mohamed-Elhussien',   label: 'GitHub',   id: 'social-github'   },
                 { icon: LinkedIn, href: 'https://www.linkedin.com/in/mohamed-elhussien-ahmed/', label: 'LinkedIn', id: 'social-linkedin' },
-                { icon: Facebook,  href: 'https://facebook.com',  label: 'Facebook',  id: 'social-facebook'  },
+                { icon: Facebook,  href: 'https://www.facebook.com/mohamed.elhussien.52/',  label: 'Facebook',  id: 'social-facebook'  },
               ].map(({ icon: Icon, href, label, id }) => (
                 <a key={id} id={id} href={href} target="_blank" rel="noreferrer" aria-label={label} className="social-link">
                   <Icon size={16} />
