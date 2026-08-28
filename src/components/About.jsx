@@ -37,136 +37,82 @@ export default function About() {
     <section
       id="about"
       ref={sectionRef}
-      style={{ padding: '7rem 0', position: 'relative', overflow: 'hidden' }}
+      className="relative overflow-hidden py-28"
     >
       {/* Background orbs */}
-      <div className="orb orb-cyan"   style={{ width: '400px', height: '400px', top: '10%', right: '-100px', opacity: 0.25 }} />
-      <div className="orb orb-purple" style={{ width: '350px', height: '350px', bottom: '5%', left: '-80px',  opacity: 0.2  }} />
+      <div className="orb orb-cyan top-[10%] -right-24 w-96 h-96 opacity-25" />
+      <div className="orb orb-purple bottom-[5%] -left-20 w-80 h-80 opacity-20" />
 
-      <div className="section-container" style={{ position: 'relative', zIndex: 1 }}>
+      <div className="section-container">
         {/* Section header */}
         <div
-          style={{
-            textAlign: 'center',
-            marginBottom: '4rem',
-            opacity: inView ? 1 : 0,
-            transform: inView ? 'none' : 'translateY(24px)',
-            transition: 'all 0.7s ease',
-          }}
+          className={`text-center mb-16 transition-all duration-700 ease-out ${
+            inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}
         >
-          <span className="section-label" style={{ marginBottom: '1rem', display: 'inline-flex' }}>
+          <span className="section-label mb-4">
             <User size={12} />
             About Me
           </span>
-          <h2
-            style={{
-              marginTop: '1rem',
-              fontSize: 'clamp(1.9rem, 4vw, 2.8rem)',
-              fontWeight: 800,
-              color: 'var(--color-text-primary)',
-            }}
-          >
+          <h2 className="mt-4 text-4xl lg:text-5xl font-extrabold text-[var(--color-text-primary)]">
             Who I <span className="gradient-text">Am</span>
           </h2>
-          <p style={{ color: 'var(--color-text-secondary)', maxWidth: '540px', margin: '1rem auto 0', fontSize: '0.95rem' }}>
+          <p className="text-[var(--color-text-secondary)] max-w-xl mx-auto mt-4 text-base">
             Passionate about crafting experiences that live at the intersection of design and code.
           </p>
         </div>
 
         {/* Two-column layout */}
-        <div
-          className="flex flex-col lg:flex-row items-start justify-between"
-          style={{ gap: '3.5rem' }}
-        >
+        <div className="flex flex-col lg:flex-row items-start justify-between gap-14">
           {/* ── LEFT: Bio + Info ── */}
           <div
-            className="w-full lg:w-1/2"
-            style={{
-              opacity: inView ? 1 : 0,
-              transform: inView ? 'none' : 'translateX(-32px)',
-              transition: 'all 0.8s ease 0.15s',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '1.75rem',
-            }}
+            className={`w-full lg:w-1/2 flex flex-col gap-7 transition-all duration-700 ease-out delay-150 ${
+              inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+            }`}
           >
             {/* Avatar + name card */}
-            <div
-              className="glass-strong"
-              style={{
-                borderRadius: 'var(--radius-xl)',
-                padding: '2rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '1.5rem',
-              }}
-            >
+            <div className="glass-strong rounded-2xl p-8 flex items-center gap-6">
               {/* Avatar */}
-              <div
-                style={{
-                  width: '80px',
-                  height: '80px',
-                  borderRadius: '50%',
-                  flexShrink: 0,
-                  background: 'linear-gradient(135deg, var(--color-accent), var(--color-cyan))',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '2rem',
-                  fontWeight: 800,
-                  color: '#fff',
-                  border: '3px solid rgba(255,255,255,0.15)',
-                  boxShadow: '0 0 30px var(--color-accent-glow)',
-                }}
-              >
+              <div className="w-20 h-20 rounded-full shrink-0 bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-cyan)] flex items-center justify-center text-3xl font-extrabold text-white border-[3px] border-white/15 shadow-[0_0_30px_var(--color-accent-glow)]">
                 ME
               </div>
-              <div>
-                <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--color-text-primary)' }}>
+              <div className="min-w-0">
+                <h3 className="text-xl font-bold text-[var(--color-text-primary)] truncate">
                   Mohamed Elhussien
                 </h3>
-                <p style={{ color: 'var(--color-accent-light)', fontSize: '0.875rem', fontWeight: 500 }}>
+                <p className="text-[var(--color-accent-light)] text-sm font-medium">
                   Frontend Developer
                 </p>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.4rem' }}>
-                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#22C55E', animation: 'blink 2s ease infinite', display: 'inline-block' }} />
-                  <span style={{ color: 'var(--color-text-muted)', fontSize: '0.78rem' }}>Open to opportunities</span>
+                <div className="flex items-center gap-1.5 mt-1.5">
+                  <span className="w-2 h-2 rounded-full bg-green-500 animate-blink inline-block" />
+                  <span className="text-[var(--color-text-muted)] text-xs">Open to opportunities</span>
                 </div>
               </div>
             </div>
 
             {/* Bio paragraphs */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.95rem', lineHeight: 1.9 }}>
-                I&apos;m a <span style={{ color: 'var(--color-accent-light)', fontWeight: 600 }}>Frontend Developer</span> who transforms
+            <div className="flex flex-col gap-4">
+              <p className="text-[var(--color-text-secondary)] text-base leading-relaxed">
+                I&apos;m a <span className="text-[var(--color-accent-light)] font-semibold">Frontend Developer</span> who transforms
                 design concepts into fast, accessible, and visually stunning digital products. I live for the details —
                 the micro-animation that delights, the layout that guides, the color that communicates.
               </p>
-              <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.95rem', lineHeight: 1.9 }}>
-                My core stack revolves around <span style={{ color: 'var(--color-cyan)', fontWeight: 600 }}>React</span> and{' '}
-                <span style={{ color: 'var(--color-accent-light)', fontWeight: 600 }}>Tailwind CSS</span>, but I&apos;m always
+              <p className="text-[var(--color-text-secondary)] text-base leading-relaxed">
+                My core stack revolves around <span className="text-[var(--color-cyan)] font-semibold">React</span> and{' '}
+                <span className="text-[var(--color-accent-light)] font-semibold">Tailwind CSS</span>, but I&apos;m always
                 expanding my toolkit. When I&apos;m not coding, you&apos;ll find me exploring design systems or contributing to open-source.
               </p>
             </div>
 
             {/* Info table */}
-            <div
-              className="glass"
-              style={{ borderRadius: 'var(--radius-lg)', padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}
-            >
+            <div className="glass rounded-xl p-6 flex flex-col gap-3">
               {INFO_ITEMS.map(({ label, value }) => (
                 <div
                   key={label}
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    paddingBottom: '0.6rem',
-                    borderBottom: '1px solid var(--color-border)',
-                  }}
+                  className="flex justify-between items-center pb-2.5 border-b border-[var(--color-border)] last:border-b-0 last:pb-0"
                 >
-                  <span style={{ color: 'var(--color-text-muted)', fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{label}</span>
-                  <span style={{ color: 'var(--color-text-primary)', fontSize: '0.88rem', fontWeight: 500 }}>{value}</span>
+                  <span className="text-[var(--color-text-muted)] text-xs uppercase tracking-widest">{label}</span>
+                  <span className="text-[var(--color-text-primary)] text-sm font-medium">{value}</span>
                 </div>
               ))}
             </div>
@@ -174,47 +120,22 @@ export default function About() {
 
           {/* ── RIGHT: Stats Grid ── */}
           <div
-            className="w-full lg:w-1/2"
-            style={{
-              opacity: inView ? 1 : 0,
-              transform: inView ? 'none' : 'translateX(32px)',
-              transition: 'all 0.8s ease 0.3s',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '1.75rem',
-            }}
+            className={`w-full lg:w-1/2 flex flex-col gap-7 transition-all duration-700 ease-out delay-300 ${
+              inView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
+            }`}
           >
             {/* Stats 2×2 grid */}
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(2, 1fr)',
-                gap: '1rem',
-              }}
-            >
+            <div className="grid grid-cols-2 gap-4">
               {STATS.map(({ number, label, icon: Icon }, i) => (
-                <div
+                                <div
                   key={label}
-                  className="stat-card"
-                  style={{
-                    opacity: inView ? 1 : 0,
-                    transform: inView ? 'none' : 'translateY(20px)',
-                    transition: `all 0.6s ease ${0.4 + i * 0.1}s`,
-                  }}
+                  className={`stat-card ${
+                    inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+                  }`}
+                  style={{ transitionDelay: `${400 + i * 100}ms` }}
                 >
-                  <div
-                    style={{
-                      width: '44px',
-                      height: '44px',
-                      borderRadius: '12px',
-                      background: 'var(--color-accent-dim)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      marginBottom: '0.75rem',
-                    }}
-                  >
-                    <Icon size={20} style={{ color: 'var(--color-accent-light)' }} />
+                  <div className="w-11 h-11 rounded-xl bg-[var(--color-accent-dim)] flex items-center justify-center mb-3">
+                    <Icon size={20} className="text-[var(--color-accent-light)]" />
                   </div>
                   <div className="stat-number">{number}</div>
                   <div className="stat-label">{label}</div>
@@ -223,59 +144,22 @@ export default function About() {
             </div>
 
             {/* Philosophy quote */}
-            <div
-              className="glass-strong"
-              style={{
-                borderRadius: 'var(--radius-xl)',
-                padding: '2rem',
-                borderLeft: '3px solid var(--color-accent)',
-                position: 'relative',
-                overflow: 'hidden',
-              }}
-            >
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '1rem',
-                  right: '1.5rem',
-                  fontSize: '5rem',
-                  lineHeight: 1,
-                  color: 'var(--color-accent-dim)',
-                  fontFamily: 'Georgia, serif',
-                  userSelect: 'none',
-                  pointerEvents: 'none',
-                }}
-              >
+            <div className="glass-strong rounded-2xl p-8 border-l-[3px] border-[var(--color-accent)] relative overflow-hidden">
+              <div className="absolute top-4 right-6 text-7xl leading-none text-[var(--color-accent-dim)] font-serif select-none pointer-events-none">
                 &ldquo;
               </div>
-              <p
-                style={{
-                  fontSize: '1rem',
-                  fontStyle: 'italic',
-                  color: 'var(--color-text-secondary)',
-                  lineHeight: 1.9,
-                  position: 'relative',
-                  zIndex: 1,
-                }}
-              >
+              <p className="text-base italic text-[var(--color-text-secondary)] leading-relaxed relative z-10">
                 Clean code isn&apos;t just about working software — it&apos;s about crafting experiences that users
                 fall in love with, one pixel at a time.
               </p>
-              <div
-                style={{
-                  marginTop: '1rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.75rem',
-                }}
-              >
-                <div style={{ width: '32px', height: '2px', background: 'linear-gradient(90deg, var(--color-accent), var(--color-cyan))' }} />
-                <span style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--color-accent-light)' }}>Mohamed Elhussien</span>
+              <div className="mt-4 flex items-center gap-3">
+                <div className="w-8 h-0.5 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-cyan)]" />
+                <span className="text-xs font-semibold text-[var(--color-accent-light)]">Mohamed Elhussien</span>
               </div>
             </div>
 
             {/* CTA row */}
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <div className="flex gap-4 flex-wrap">
               <a
                 href="#contact"
                 className="btn-primary"

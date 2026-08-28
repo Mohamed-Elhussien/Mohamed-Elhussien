@@ -1,5 +1,33 @@
 import { useState, useEffect, useRef } from 'react'
-import { Download, ArrowRight, GitBranch, Briefcase, AtSign } from 'lucide-react'
+import { Download, ArrowRight, GitBranch } from 'lucide-react'
+
+// أيقونة فيسبوك مليانة (solid) — lucide-react مفيهوش نسخة سوليد للأيقونة دي،
+// فعملناها كـ SVG بسيط بدل ما نضيف مكتبة كاملة جديدة عشان أيقونة واحدة بس.
+const Facebook = ({ size = 16, ...props }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 320 512"
+    fill="currentColor"
+    {...props}
+  >
+    <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
+  </svg>
+)
+
+// أيقونة LinkedIn الحقيقية (مربع بحرف "in") — برضو lucide-react مفيهوش
+// لوجوهات براندات خالص، فعملناها كـ SVG مخصص زي الفيسبوك بالظبط.
+const LinkedIn = ({ size = 16, ...props }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 448 512"
+    fill="currentColor"
+    {...props}
+  >
+    <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
+  </svg>
+)
 
 const ROLES = [
   'Frontend Developer',
@@ -158,7 +186,7 @@ export default function Hero() {
                 <span>View My Work</span>
                 <ArrowRight size={16} style={{ position: 'relative', zIndex: 1 }} />
               </a>
-              <a
+              {/* <a
                 href="#"
                 className="btn-secondary"
                 id="hero-download-cv"
@@ -166,7 +194,7 @@ export default function Hero() {
               >
                 <Download size={16} />
                 Download CV
-              </a>
+              </a> */}
             </div>
 
             {/* Social row */}
@@ -174,12 +202,12 @@ export default function Hero() {
               className="animate-fade-up flex items-center"
               style={{ animationDelay: '0.65s', opacity: 0, gap: '0.75rem' }}
             >
-              <span style={{ fontSize: '0.78rem', color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Follow</span>
-              <div style={{ width: '40px', height: '1px', background: 'var(--color-border)' }} />
+              {/* <span style={{ fontSize: '0.78rem', color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Follow</span> */}
+              <div style={{ width: '5px', height: '1px', background: 'var(--color-border)' }} />
               {[
-                { icon: GitBranch, href: 'https://github.com',   label: 'GitHub',   id: 'social-github'   },
-                { icon: Briefcase, href: 'https://linkedin.com', label: 'LinkedIn', id: 'social-linkedin' },
-                { icon: AtSign,    href: 'https://twitter.com',  label: 'Twitter',  id: 'social-twitter'  },
+                { icon: GitBranch, href: 'https://github.com/Mohamed-Elhussien',   label: 'GitHub',   id: 'social-github'   },
+                { icon: LinkedIn, href: 'https://www.linkedin.com/in/mohamed-elhussien-ahmed/', label: 'LinkedIn', id: 'social-linkedin' },
+                { icon: Facebook,  href: 'https://facebook.com',  label: 'Facebook',  id: 'social-facebook'  },
               ].map(({ icon: Icon, href, label, id }) => (
                 <a key={id} id={id} href={href} target="_blank" rel="noreferrer" aria-label={label} className="social-link">
                   <Icon size={16} />
@@ -249,8 +277,8 @@ export default function Hero() {
           className="flex flex-col items-center animate-fade-up"
           style={{ animationDelay: '1s', opacity: 0, marginTop: '3rem', gap: '0.5rem' }}
         >
-          <span style={{ fontSize: '0.72rem', color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.12em' }}>Scroll</span>
-          <div
+          {/* <span style={{ fontSize: '0.72rem', color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.12em' }}>Scroll</span> */}
+          {/* <div
             style={{
               width: '24px',
               height: '38px',
@@ -270,7 +298,7 @@ export default function Hero() {
                 animation: 'float 1.5s ease-in-out infinite',
               }}
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
