@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react'
 import { Mail, Send, MapPin, Clock, CheckCircle, AlertCircle, MessageSquare } from 'lucide-react'
 
 const INFO_CARDS = [
-  { icon: Mail,    label: 'Email',    value: 'hello@elhussien.dev',  sub: 'Typically replies within 24h',  color: '#8B5CF6', id: 'contact-info-email'    },
+  { icon: Mail,    label: 'Email',    value: 'mohamedelhussien5@gmail.com',  sub: 'Typically replies within 24h',  color: '#8B5CF6', id: 'contact-info-email'    },
   { icon: MapPin,  label: 'Location', value: 'Egypt 🇪🇬',           sub: 'Open to remote worldwide',      color: '#06B6D4', id: 'contact-info-location' },
   { icon: Clock,   label: 'Timezone', value: 'EET (UTC +3)',         sub: 'Available 9am – 10pm',          color: '#22C55E', id: 'contact-info-timezone' },
 ]

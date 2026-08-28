@@ -1,10 +1,11 @@
-import { GitBranch, Briefcase, AtSign, Mail, Code2, Heart, ArrowUp } from 'lucide-react'
+import { GitBranch, Mail, Code2, Heart, ArrowUp } from 'lucide-react'
+import { Facebook, LinkedIn } from './icons/BrandIcons'
 
 const SOCIAL_LINKS = [
-  { icon: GitBranch, href: 'https://github.com',   label: 'GitHub',   id: 'footer-social-github'   },
-  { icon: Briefcase, href: 'https://linkedin.com', label: 'LinkedIn', id: 'footer-social-linkedin' },
-  { icon: AtSign,    href: 'https://twitter.com',  label: 'Twitter',  id: 'footer-social-twitter'  },
-  { icon: Mail,      href: 'mailto:hello@elhussien.dev', label: 'Email', id: 'footer-social-email' },
+  { icon: GitBranch, href: 'https://github.com/Mohamed-Elhussien',   label: 'GitHub',   id: 'footer-social-github'   },
+  { icon: LinkedIn,  href: 'https://www.linkedin.com/in/mohamed-elhussien-ahmed/', label: 'LinkedIn', id: 'footer-social-linkedin' },
+  { icon: Facebook,  href: 'https://www.facebook.com/mohamed.elhussien.52/', label: 'Facebook', id: 'footer-social-facebook' },
+  { icon: Mail,      href: 'mailto:mohamedelhussien5@gmail.com', label: 'Email', id: 'footer-social-email' },
 ]
 
 function scrollToTop() {
@@ -41,7 +42,12 @@ export default function Footer() {
             Frontend Developer crafting pixel-perfect, high-performance web experiences with modern tools and a passion for beautiful design.
           </p>
 
-          {/* Social icons */}
+          {/*
+            Social icons — بنستخدم نفس كلاس "social-link" المستخدم في
+            Hero.jsx بدل ما نكرر نفس الشكل بـ Tailwind utilities يدويًا.
+            ده اللي كان سبب مشكلة الـ hover (الدايرة والأيقونة مش متزامنين)،
+            لأن الكلاس الجاهز مظبوط صح ومختبر بالفعل في الهيرو.
+          */}
           <div className="flex items-center gap-3 mb-10">
             {SOCIAL_LINKS.map(({ icon: Icon, href, label, id }) => (
               <a
@@ -51,9 +57,9 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={label}
-                className="w-10 h-10 rounded-full bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-400 hover:text-white hover:border-purple-500/40 hover:bg-purple-500/15 transition-all duration-300 hover:-translate-y-1"
+                className="social-link"
               >
-                <Icon size={17} />
+                <Icon size={16} />
               </a>
             ))}
           </div>
